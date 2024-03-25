@@ -1,0 +1,19 @@
+name: "Docs Gen"
+on:
+    push:
+      branches:
+      - main
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ammaraskar/sphinx-action@master
+      with:
+        docs-folder: "TD4/docs/"
+        build-command: "sphinx-build -b singlehtml . _build"
+    - name: GitHub Pages action
+      uses: peaceiris/actions-gh-pages@v3.6.1
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .TD4/_build/
