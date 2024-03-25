@@ -8,15 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    # - uses: actions/setup-python@v5
-    #   with:
-    #     python-version: '3.10'
-    # - run: pip install pydata_sphinx_theme
-    - uses: ammaraskar/sphinx-action@master
+    - uses: actions/setup-python@v5
       with:
-        docs-folder: "TD4/docs/"
-        pre-build-command: "pip install pydata_sphinx_theme"
-        build-command: "sphinx-build -b singlehtml . _build"
+        python-version: '3.10'
+    - run: pip install pydata_sphinx_theme
+    - name: Build the docs
+      run: |
+        cd TD4/docs && sphinx-build -b singlehtml . _build
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
