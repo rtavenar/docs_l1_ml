@@ -70,11 +70,6 @@ def visu_dendrogramme(model):
         linkage_matrix, 
         color_threshold=0. if model.n_clusters is None else model.distances_[::-1][model.n_clusters-2])
     plt.show()
-    
-def diagramme_en_batons_distances(modele, n_clusters_max=10):
-    plt.bar(list(range(1, n_clusters_max + 1)), 
-            modele.distances_[::-1][:n_clusters_max])
-    plt.show()
 
 def visu_donnees_synthetiques(X, clusters=None):
     """Visualise un jeu de données synthétique (généré par :func:`charger_donnees`).
@@ -101,6 +96,30 @@ def visu_donnees_synthetiques(X, clusters=None):
     """
     plt.figure()
     plt.scatter(X[:, 0], X[:, 1], c='k' if clusters is None else clusters)
+    plt.show()
+
+def diagramme_en_batons_distances(modele, n_clusters_max=10):
+    """
+    Cette fonction permet de représenter un diagramme en barres des distances entre groupes en fonction du nombre de groupes.
+    On peut interpréter ce diagramme comme une mesure de la diﬀiculté à diminuer le nombre de groupes (cf. CM p141).
+
+    Parameters
+    ----------
+    model : modèle scikit-learn
+        Un modèle de CAH entraîné pour lequel on a fixé ``compute_distances`` à ``True``.
+    n_clusters_max : ``int``
+        Nombre maximum de clusters à inclure sur l'axe des abscisses.
+
+    Examples
+    --------
+    Example
+    -------
+    >>> cah = AgglomerativeClustering(compute_distances=True)
+    >>> cah.fit(X)
+    >>> diagramme_en_batons_distances(cah, n_clusters_max=5)
+    """
+    plt.bar(list(range(1, n_clusters_max + 1)), 
+            modele.distances_[::-1][:n_clusters_max])
     plt.show()
     
 def visu_visages(X, clusters, h=64, w=64, n_visages_par_ligne=10):
