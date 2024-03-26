@@ -313,6 +313,28 @@ Comme les images sont de taille 64x64, une image est représentée par un vecteu
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="td4_cah.diagramme_en_batons_distances">
+<span class="sig-name descname"><span class="pre">diagramme_en_batons_distances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modele</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4_cah.diagramme_en_batons_distances" title="Link to this definition">#</a></dt>
+<dd><p>Cette fonction permet de représenter un diagramme en barres des distances entre groupes en fonction du nombre de groupes.
+On peut interpréter ce diagramme comme une mesure de la diﬀiculté à diminuer le nombre de groupes (cf. CM p141).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>modèle scikit-learn</em>) – Un modèle de CAH entraîné pour lequel on a fixé <code class="docutils literal notranslate"><span class="pre">compute_distances</span></code> à <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>n_clusters_max</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Nombre maximum de clusters à inclure sur l’axe des abscisses.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Exemples</p>
+<p class="rubric">Exemple</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cah</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">compute_distances</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cah</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">diagramme_en_batons_distances</span><span class="p">(</span><span class="n">cah</span><span class="p">,</span> <span class="n">n_clusters_max</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="td4_cah.visu_dendrogramme">
 <span class="sig-name descname"><span class="pre">visu_dendrogramme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4_cah.visu_dendrogramme" title="Link to this definition">#</a></dt>
 <dd><p>Visualise le dendrogramme correspondant à un modèle CAH fourni en entrée.</p>
