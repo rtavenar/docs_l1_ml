@@ -19,7 +19,7 @@ intersphinx_mapping = {
 html_theme_options = {
     "nosidebar": True,
     "logo": {
-        "text": ""
+        "text": "TD4"
     }
 }
 language = "fr"

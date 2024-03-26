@@ -4,11 +4,38 @@ import matplotlib.pyplot as plt
 from scipy.cluster.hierarchy import dendrogram
 import numpy as np
 
+def diagramme_en_batons(valeurs_en_x, valeurs_en_y):
+    """Cette fonction affiche un diagramme en batons à partir
+    des listes des coordonnées en x (valeurs_en_x) et des
+    coordonnées en y (valeurs_en_y).
+    
+    Parameters
+    ----------
+    valeurs_en_x: liste
+        Liste des étiquettes pour l'axe des abscisses
+    valeurs_en_y: liste
+        Liste des hauteurs de bâtons (axe des ordonnées)
 
+    Example
+    -------
+    >>> diagramme_en_batons([1, 2, 3], [10, 7, 3])
+    """
+    plt.figure()
+    rects = plt.bar([f"k={xi}" for xi in valeurs_en_x], valeurs_en_y)
+    plt.bar_label(rects)
+    plt.show()
 
 def charger_donnees():
     """Charge des données synthétiques et les retourne sous la forme d'un tableau numpy 
-    (liste de listes pour faire simple).
+    (que vous manipulerez comme une liste de listes).
+
+    Example
+    -------
+    >>> X = charger_donnees()
+    >>> print(len(X))
+    100
+    >>> print(len(X[0]))
+    2
     """
     return make_blobs(
         cluster_std=.15,
@@ -21,18 +48,37 @@ def charger_donnees():
     )[0]
 
 def charger_visages():
-    """Charge les données Olivetti Faces et les retourne sous la forme d'un tableau numpy 
-    (liste de listes pour faire simple).
+    """Cette fonction renvoie un jeu de données représentant des images de visages en niveaux de gris.
+    Chaque image, dans ce jeu de données, est représentée par la luminosité de chacun de ses pixels.
+    Comme les images sont de taille 64x64, une image est représentée par un vecteur de taille 4096.
+
+    Example
+    -------
+    >>> X = charger_visages()
+    >>> print(len(X))
+    400
+    >>> print(len(X[0]))
+    4096
     """
     return fetch_olivetti_faces().data
 
 def visu_dendogramme(model):
     """Visualise le dendogramme correspondant à un modèle CAH fourni en entrée.
 
+    Le dendrogramme permet de visualiser le process d’agglomération des individus.
+    Il permet aussi de choisir le nombre de groupes car la hauteur des segments 
+    correspond à la distance entre deux groupes (cf. p140 du CM).
+
     Parameters
     ----------
     model : modèle scikit-learn
-        Un modèle de CAH entraîné.
+        Un modèle de CAH entraîné pour lequel on a fixé ``compute_distances`` à ``True``.
+
+    Example
+    -------
+    >>> cah = AgglomerativeClustering(compute_distances=True)
+    >>> cah.fit(X)
+    >>> visu_dendogramme(cah)
     """
     linkage_matrix = np.column_stack(
         [model.children_, 
@@ -52,16 +98,27 @@ def diagramme_en_batons_distances(modele, n_clusters_max=10):
     plt.show()
 
 def visu_donnees_synthetiques(X, clusters=None):
-    """Visualise un jeu de données synthétique (généré par `charger_donnees`).
+    """Visualise un jeu de données synthétique (généré par :func:`charger_donnees`).
+
+    Si l'argument ``clusters`` est fourni, il doit contenir une liste d'entiers 
+    de la même taille que X et chaque point du jeu de données sera coloré selon
+    l'entier qui lui est associé.
 
     Parameters
     ----------
-    X : numpy.ndarray
+    X : ``numpy.ndarray`` (liste de liste)
         jeu de données (2D) à visualiser
-    clusters : list ou `None`
-        * si None : ne pas colorer les points
-        * sinon   : clusters est une liste indiquant, pour chaque point 
+    clusters : liste ou ``None``
+        * si ``None`` : ne pas colorer les points
+        * sinon   : ``clusters`` est une liste indiquant, pour chaque point 
           du jeu de données, le numéro du cluster auquel il est rattaché
+
+    Examples
+    --------
+    >>> X = charger_donnees()
+    >>> visu_donnees_synthetiques(X)
+    >>> clusters = [1, 1, 7, 3, ..., 6]
+    >>> visu_donnees_synthetiques(X, clusters)
     """
     plt.figure()
     plt.scatter(X[:, 0], X[:, 1], c='k' if clusters is None else clusters)
@@ -72,13 +129,23 @@ def visu_visages(X, clusters, h=64, w=64, n_visages_par_ligne=10):
 
     Parameters
     ----------
-    X                   jeu de données de visages (images) à visualiser
-    clusters            liste indiquant, pour chaque image du jeu de données, 
-                        le numéro du cluster auquel elle est rattachée
-    h                   hauteur des images (en pixels)
-    w                   largeur des images (en pixels)
-    n_visages_par_ligne nombre de visages à afficher pour chaque cluster
+    X : ``numpy.ndarray`` (liste de liste)
+        jeu de données de visages (images) à visualiser
+    clusters : liste
+        liste indiquant, pour chaque image du jeu de données, 
+        le numéro du cluster auquel elle est rattachée
+    h : ``int``
+        hauteur des images (en pixels)
+    w : ``int``
+        largeur des images (en pixels)
+    n_visages_par_ligne : ``int``
+        nombre de visages à afficher pour chaque cluster
     
+    Example
+    --------
+    >>> X = charger_visages()
+    >>> clusters = [1, 1, 7, 3, ..., 6]
+    >>> visu_visages(X, clusters)
     """
     n_clusters = len(set(clusters))
     plt.figure()
