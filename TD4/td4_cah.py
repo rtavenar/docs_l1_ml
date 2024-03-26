@@ -110,8 +110,6 @@ def diagramme_en_batons_distances(modele, n_clusters_max=10):
     n_clusters_max : ``int``
         Nombre maximum de clusters à inclure sur l'axe des abscisses.
 
-    Examples
-    --------
     Example
     -------
     >>> cah = AgglomerativeClustering(compute_distances=True)
