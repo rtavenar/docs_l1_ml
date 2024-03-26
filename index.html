@@ -256,42 +256,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-td4">
-<span id="td4"></span><h1>td4<a class="headerlink" href="#module-td4" title="Link to this heading">#</a></h1>
+  <section id="module-td4_decouverte_sklearn">
+<span id="td4-decouverte-sklearn"></span><h1>td4_decouverte_sklearn<a class="headerlink" href="#module-td4_decouverte_sklearn" title="Link to this heading">#</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="td4.charger_donnees">
-<span class="sig-name descname"><span class="pre">charger_donnees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#td4.charger_donnees" title="Link to this definition">#</a></dt>
-<dd><p>Charge des données synthétiques et les retourne sous la forme d’un tableau numpy
-(que vous manipulerez comme une liste de listes).</p>
-<p class="rubric">Exemple</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">charger_donnees</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
-<span class="go">100</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-<span class="go">2</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="td4.charger_visages">
-<span class="sig-name descname"><span class="pre">charger_visages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#td4.charger_visages" title="Link to this definition">#</a></dt>
-<dd><p>Cette fonction renvoie un jeu de données représentant des images de visages en niveaux de gris.
-Chaque image, dans ce jeu de données, est représentée par la luminosité de chacun de ses pixels.
-Comme les images sont de taille 64x64, une image est représentée par un vecteur de taille 4096.</p>
-<p class="rubric">Exemple</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">charger_visages</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
-<span class="go">400</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-<span class="go">4096</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="td4.diagramme_en_batons">
-<span class="sig-name descname"><span class="pre">diagramme_en_batons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">valeurs_en_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valeurs_en_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4.diagramme_en_batons" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="td4_decouverte_sklearn.diagramme_en_batons">
+<span class="sig-name descname"><span class="pre">diagramme_en_batons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">valeurs_en_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valeurs_en_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4_decouverte_sklearn.diagramme_en_batons" title="Link to this definition">#</a></dt>
 <dd><p>Cette fonction affiche un diagramme en batons à partir
 des listes des coordonnées en x (valeurs_en_x) et des
 coordonnées en y (valeurs_en_y).</p>
@@ -309,9 +278,43 @@ coordonnées en y (valeurs_en_y).</p>
 </div>
 </dd></dl>
 
+</section>
+<section id="module-td4_cah">
+<span id="td4-cah"></span><h1>td4_cah<a class="headerlink" href="#module-td4_cah" title="Link to this heading">#</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="td4.visu_dendogramme">
-<span class="sig-name descname"><span class="pre">visu_dendogramme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4.visu_dendogramme" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="td4_cah.charger_donnees">
+<span class="sig-name descname"><span class="pre">charger_donnees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#td4_cah.charger_donnees" title="Link to this definition">#</a></dt>
+<dd><p>Charge des données synthétiques et les retourne sous la forme d’un tableau numpy
+(que vous manipulerez comme une liste de listes).</p>
+<p class="rubric">Exemple</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">charger_donnees</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="go">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="td4_cah.charger_visages">
+<span class="sig-name descname"><span class="pre">charger_visages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#td4_cah.charger_visages" title="Link to this definition">#</a></dt>
+<dd><p>Cette fonction renvoie un jeu de données représentant des images de visages en niveaux de gris.
+Chaque image, dans ce jeu de données, est représentée par la luminosité de chacun de ses pixels.
+Comme les images sont de taille 64x64, une image est représentée par un vecteur de taille 4096.</p>
+<p class="rubric">Exemple</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">charger_visages</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="go">400</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="go">4096</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="td4_cah.visu_dendogramme">
+<span class="sig-name descname"><span class="pre">visu_dendogramme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4_cah.visu_dendogramme" title="Link to this definition">#</a></dt>
 <dd><p>Visualise le dendogramme correspondant à un modèle CAH fourni en entrée.</p>
 <p>Le dendrogramme permet de visualiser le process d’agglomération des individus.
 Il permet aussi de choisir le nombre de groupes car la hauteur des segments
@@ -330,9 +333,9 @@ correspond à la distance entre deux groupes (cf. p140 du CM).</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="td4.visu_donnees_synthetiques">
-<span class="sig-name descname"><span class="pre">visu_donnees_synthetiques</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4.visu_donnees_synthetiques" title="Link to this definition">#</a></dt>
-<dd><p>Visualise un jeu de données synthétique (généré par <a class="reference internal" href="#td4.charger_donnees" title="td4.charger_donnees"><code class="xref py py-func docutils literal notranslate"><span class="pre">charger_donnees()</span></code></a>).</p>
+<dt class="sig sig-object py" id="td4_cah.visu_donnees_synthetiques">
+<span class="sig-name descname"><span class="pre">visu_donnees_synthetiques</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4_cah.visu_donnees_synthetiques" title="Link to this definition">#</a></dt>
+<dd><p>Visualise un jeu de données synthétique (généré par <a class="reference internal" href="#td4_cah.charger_donnees" title="td4_cah.charger_donnees"><code class="xref py py-func docutils literal notranslate"><span class="pre">charger_donnees()</span></code></a>).</p>
 <p>Si l’argument <code class="docutils literal notranslate"><span class="pre">clusters</span></code> est fourni, il doit contenir une liste d’entiers
 de la même taille que X et chaque point du jeu de données sera coloré selon
 l’entier qui lui est associé.</p>
@@ -359,9 +362,9 @@ du jeu de données, le numéro du cluster auquel il est rattaché</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="td4.visu_visages">
-<span class="sig-name descname"><span class="pre">visu_visages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clusters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_visages_par_ligne</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4.visu_visages" title="Link to this definition">#</a></dt>
-<dd><p>Visualise un jeu de données Olivetti Faces (généré par <a class="reference internal" href="#td4.charger_visages" title="td4.charger_visages"><code class="xref py py-func docutils literal notranslate"><span class="pre">charger_visages()</span></code></a>).</p>
+<dt class="sig sig-object py" id="td4_cah.visu_visages">
+<span class="sig-name descname"><span class="pre">visu_visages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clusters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_visages_par_ligne</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4_cah.visu_visages" title="Link to this definition">#</a></dt>
+<dd><p>Visualise un jeu de données Olivetti Faces (généré par <a class="reference internal" href="#td4_cah.charger_visages" title="td4_cah.charger_visages"><code class="xref py py-func docutils literal notranslate"><span class="pre">charger_visages()</span></code></a>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
