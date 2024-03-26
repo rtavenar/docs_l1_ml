@@ -313,9 +313,9 @@ Comme les images sont de taille 64x64, une image est représentée par un vecteu
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="td4_cah.visu_dendogramme">
-<span class="sig-name descname"><span class="pre">visu_dendogramme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4_cah.visu_dendogramme" title="Link to this definition">#</a></dt>
-<dd><p>Visualise le dendogramme correspondant à un modèle CAH fourni en entrée.</p>
+<dt class="sig sig-object py" id="td4_cah.visu_dendrogramme">
+<span class="sig-name descname"><span class="pre">visu_dendrogramme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4_cah.visu_dendrogramme" title="Link to this definition">#</a></dt>
+<dd><p>Visualise le dendrogramme correspondant à un modèle CAH fourni en entrée.</p>
 <p>Le dendrogramme permet de visualiser le process d’agglomération des individus.
 Il permet aussi de choisir le nombre de groupes car la hauteur des segments
 correspond à la distance entre deux groupes (cf. p140 du CM).</p>
@@ -327,7 +327,7 @@ correspond à la distance entre deux groupes (cf. p140 du CM).</p>
 <p class="rubric">Exemple</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cah</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">compute_distances</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cah</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">visu_dendogramme</span><span class="p">(</span><span class="n">cah</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">visu_dendrogramme</span><span class="p">(</span><span class="n">cah</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
