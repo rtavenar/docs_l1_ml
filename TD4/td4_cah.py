@@ -41,8 +41,8 @@ def charger_visages():
     """
     return fetch_olivetti_faces().data
 
-def visu_dendogramme(model):
-    """Visualise le dendogramme correspondant à un modèle CAH fourni en entrée.
+def visu_dendrogramme(model):
+    """Visualise le dendrogramme correspondant à un modèle CAH fourni en entrée.
 
     Le dendrogramme permet de visualiser le process d’agglomération des individus.
     Il permet aussi de choisir le nombre de groupes car la hauteur des segments 
@@ -57,7 +57,7 @@ def visu_dendogramme(model):
     -------
     >>> cah = AgglomerativeClustering(compute_distances=True)
     >>> cah.fit(X)
-    >>> visu_dendogramme(cah)
+    >>> visu_dendrogramme(cah)
     """
     linkage_matrix = np.column_stack(
         [model.children_, 
