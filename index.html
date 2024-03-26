@@ -114,7 +114,7 @@
   
   
   
-    <p class="title logo__title">None</p>
+    <p class="title logo__title">TD4</p>
   
 </a></div>
     
@@ -262,44 +262,100 @@ document.write(`
 <dt class="sig sig-object py" id="td4.charger_donnees">
 <span class="sig-name descname"><span class="pre">charger_donnees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#td4.charger_donnees" title="Link to this definition">#</a></dt>
 <dd><p>Charge des données synthétiques et les retourne sous la forme d’un tableau numpy
-(liste de listes pour faire simple).</p>
+(que vous manipulerez comme une liste de listes).</p>
+<p class="rubric">Exemple</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">charger_donnees</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="go">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="go">2</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="td4.charger_visages">
 <span class="sig-name descname"><span class="pre">charger_visages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#td4.charger_visages" title="Link to this definition">#</a></dt>
-<dd><p>Charge les données Olivetti Faces et les retourne sous la forme d’un tableau numpy
-(liste de listes pour faire simple).</p>
+<dd><p>Cette fonction renvoie un jeu de données représentant des images de visages en niveaux de gris.
+Chaque image, dans ce jeu de données, est représentée par la luminosité de chacun de ses pixels.
+Comme les images sont de taille 64x64, une image est représentée par un vecteur de taille 4096.</p>
+<p class="rubric">Exemple</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">charger_visages</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="go">400</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="go">4096</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="td4.diagramme_en_batons">
+<span class="sig-name descname"><span class="pre">diagramme_en_batons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">valeurs_en_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valeurs_en_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4.diagramme_en_batons" title="Link to this definition">#</a></dt>
+<dd><p>Cette fonction affiche un diagramme en batons à partir
+des listes des coordonnées en x (valeurs_en_x) et des
+coordonnées en y (valeurs_en_y).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>valeurs_en_x</strong> (<em>liste</em>) – Liste des étiquettes pour l’axe des abscisses</p></li>
+<li><p><strong>valeurs_en_y</strong> (<em>liste</em>) – Liste des hauteurs de bâtons (axe des ordonnées)</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Exemple</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">diagramme_en_batons</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="td4.visu_dendogramme">
 <span class="sig-name descname"><span class="pre">visu_dendogramme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4.visu_dendogramme" title="Link to this definition">#</a></dt>
 <dd><p>Visualise le dendogramme correspondant à un modèle CAH fourni en entrée.</p>
+<p>Le dendrogramme permet de visualiser le process d’agglomération des individus.
+Il permet aussi de choisir le nombre de groupes car la hauteur des segments
+correspond à la distance entre deux groupes (cf. p140 du CM).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>model</strong> (<em>modèle scikit-learn</em>) – Un modèle de CAH entraîné.</p>
+<dd class="field-odd"><p><strong>model</strong> (<em>modèle scikit-learn</em>) – Un modèle de CAH entraîné pour lequel on a fixé <code class="docutils literal notranslate"><span class="pre">compute_distances</span></code> à <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 </dd>
 </dl>
+<p class="rubric">Exemple</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cah</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">compute_distances</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cah</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">visu_dendogramme</span><span class="p">(</span><span class="n">cah</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="td4.visu_donnees_synthetiques">
 <span class="sig-name descname"><span class="pre">visu_donnees_synthetiques</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td4.visu_donnees_synthetiques" title="Link to this definition">#</a></dt>
-<dd><p>Visualise un jeu de données synthétique (généré par <cite>charger_donnees</cite>).</p>
+<dd><p>Visualise un jeu de données synthétique (généré par <a class="reference internal" href="#td4.charger_donnees" title="td4.charger_donnees"><code class="xref py py-func docutils literal notranslate"><span class="pre">charger_donnees()</span></code></a>).</p>
+<p>Si l’argument <code class="docutils literal notranslate"><span class="pre">clusters</span></code> est fourni, il doit contenir une liste d’entiers
+de la même taille que X et chaque point du jeu de données sera coloré selon
+l’entier qui lui est associé.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – jeu de données (2D) à visualiser</p></li>
-<li><p><strong>clusters</strong> (list ou <cite>None</cite>) – <ul>
-<li><p>si None : ne pas colorer les points</p></li>
-<li><p>sinon   : clusters est une liste indiquant, pour chaque point
+<li><p><strong>X</strong> (<code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> (liste de liste)) – jeu de données (2D) à visualiser</p></li>
+<li><p><strong>clusters</strong> (liste ou <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <ul>
+<li><p>si <code class="docutils literal notranslate"><span class="pre">None</span></code> : ne pas colorer les points</p></li>
+<li><p>sinon   : <code class="docutils literal notranslate"><span class="pre">clusters</span></code> est une liste indiquant, pour chaque point
 du jeu de données, le numéro du cluster auquel il est rattaché</p></li>
 </ul>
 </p></li>
 </ul>
 </dd>
 </dl>
+<p class="rubric">Exemples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">charger_donnees</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">visu_donnees_synthetiques</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clusters</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">visu_donnees_synthetiques</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -309,16 +365,21 @@ du jeu de données, le numéro du cluster auquel il est rattaché</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>visualiser</strong> (<em>X                   jeu de données de visages</em><em> (</em><em>images</em><em>) </em><em>à</em>) – </p></li>
-<li><p><strong>indiquant</strong> (<em>clusters            liste</em>) – le numéro du cluster auquel elle est rattachée</p></li>
-<li><p><strong>données</strong> (<em>pour chaque image du jeu de</em>) – le numéro du cluster auquel elle est rattachée</p></li>
+<li><p><strong>X</strong> (<code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> (liste de liste)) – jeu de données de visages (images) à visualiser</p></li>
+<li><p><strong>clusters</strong> (<em>liste</em>) – liste indiquant, pour chaque image du jeu de données,
+le numéro du cluster auquel elle est rattachée</p></li>
+<li><p><strong>h</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – hauteur des images (en pixels)</p></li>
+<li><p><strong>w</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – largeur des images (en pixels)</p></li>
+<li><p><strong>n_visages_par_ligne</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – nombre de visages à afficher pour chaque cluster</p></li>
 </ul>
 </dd>
 </dl>
-<p>:param : le numéro du cluster auquel elle est rattachée
-:param h                   hauteur des images (en pixels):
-:param w                   largeur des images (en pixels):
-:param n_visages_par_ligne nombre de visages à afficher pour chaque cluster:</p>
+<p class="rubric">Exemple</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">charger_visages</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clusters</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">visu_visages</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
