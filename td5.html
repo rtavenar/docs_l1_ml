@@ -317,6 +317,34 @@ document.write(`
   <section id="module-td5">
 <span id="td5"></span><h1>TD5<a class="headerlink" href="#module-td5" title="Link to this heading">#</a></h1>
 <dl class="py function">
+<dt class="sig sig-object py" id="td5.charger_fashion">
+<span class="sig-name descname"><span class="pre">charger_fashion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#td5.charger_fashion" title="Link to this definition">#</a></dt>
+<dd><p>Charge le jeu de données de classification d’images Fashion-MNIST.</p>
+<p>Ce jeu de données contient des images d’accessoires de mode et la tâche de classification
+consiste à retrouver le type d’accessoire contenu dans l’image (10 classes possibles).
+Chaque image est en résolution 28x28, ce qui fait 784 pixels en tout.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>X</strong> (<code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> (liste de liste)) – jeu de données (variables explicatives)</p></li>
+<li><p><strong>y</strong> (<em>liste d’entiers</em>) – variable cible (=classe)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Exemple</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">charger_fashion</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="go">6000</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="go">6000</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="go">784</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="td5.charger_mnist">
 <span class="sig-name descname"><span class="pre">charger_mnist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#td5.charger_mnist" title="Link to this definition">#</a></dt>
 <dd><p>Charge le jeu de données de classification d’images MNIST.</p>
@@ -335,9 +363,9 @@ Chaque image est en résolution 28x28, ce qui fait 784 pixels en tout.</p>
 <p class="rubric">Exemple</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">charger_mnist</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
-<span class="go">60000</span>
+<span class="go">6000</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
-<span class="go">60000</span>
+<span class="go">6000</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 <span class="go">784</span>
 </pre></div>
@@ -345,31 +373,9 @@ Chaque image est en résolution 28x28, ce qui fait 784 pixels en tout.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="td5.feature_importance_viz">
-<span class="sig-name descname"><span class="pre">feature_importance_viz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modele_arbre</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td5.feature_importance_viz" title="Link to this definition">#</a></dt>
-<dd><p>Visualise les pixels sur lesquels un modèle de type arbre de
-décision base ses décisions.
-Suppose que le modèle a été entraîné sur un jeu de données
-d’images de résolution 28x28.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>modele_arbre</strong> (modèle scikit-learn de type <code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code>) – Modèle pour lequel générer la visualisation.
-Ce modèle doit avoir été ajusté (=entraîné) sur un jeu de
-données avant de pouvoir être visualisé.</p>
-</dd>
-</dl>
-<p class="rubric">Exemple</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">feature_importance_viz</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="td5.visu_arbre">
 <span class="sig-name descname"><span class="pre">visu_arbre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modele_arbre</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td5.visu_arbre" title="Link to this definition">#</a></dt>
-<dd><p>Visualise un jeu de données d’images de résolution 28x28</p>
+<dd><p>Visualise un arbre de décision entraîné.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>modele_arbre</strong> (modèle scikit-learn de type <code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code>) – Modèle à visualiser.
@@ -386,8 +392,30 @@ données avant de pouvoir être visualisé.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="td5.visu_mnist">
-<span class="sig-name descname"><span class="pre">visu_mnist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td5.visu_mnist" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="td5.visu_attributs_importants">
+<span class="sig-name descname"><span class="pre">visu_attributs_importants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modele_arbre</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td5.visu_attributs_importants" title="Link to this definition">#</a></dt>
+<dd><p>Visualise les pixels sur lesquels un modèle de type arbre de
+décision base ses décisions.
+Suppose que le modèle a été entraîné sur un jeu de données
+d’images de résolution 28x28.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>modele_arbre</strong> (modèle scikit-learn de type <code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code>) – Modèle pour lequel générer la visualisation.
+Ce modèle doit avoir été ajusté (=entraîné) sur un jeu de
+données avant de pouvoir être visualisé.</p>
+</dd>
+</dl>
+<p class="rubric">Exemple</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">visu_attributs_importants</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="td5.visu_images">
+<span class="sig-name descname"><span class="pre">visu_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#td5.visu_images" title="Link to this definition">#</a></dt>
 <dd><p>Visualise un jeu de données d’images de résolution 28x28</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres<span class="colon">:</span></dt>
@@ -402,8 +430,8 @@ liées aux prédictions.</p></li>
 </dl>
 <p class="rubric">Exemple</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">charger_mnist</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">visu_mnist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">visu_mnist</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">modele</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">visu_images</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">visu_images</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">modele</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -432,10 +460,11 @@ liées aux prédictions.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#td5.charger_fashion"><code class="docutils literal notranslate"><span class="pre">charger_fashion()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#td5.charger_mnist"><code class="docutils literal notranslate"><span class="pre">charger_mnist()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#td5.feature_importance_viz"><code class="docutils literal notranslate"><span class="pre">feature_importance_viz()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#td5.visu_arbre"><code class="docutils literal notranslate"><span class="pre">visu_arbre()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#td5.visu_mnist"><code class="docutils literal notranslate"><span class="pre">visu_mnist()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#td5.visu_attributs_importants"><code class="docutils literal notranslate"><span class="pre">visu_attributs_importants()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#td5.visu_images"><code class="docutils literal notranslate"><span class="pre">visu_images()</span></code></a></li>
 </ul>
   </nav></div>
 
