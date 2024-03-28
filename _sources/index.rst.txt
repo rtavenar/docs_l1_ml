@@ -1,3 +1,6 @@
+Accueil
+=======
+
 .. toctree::
    :maxdepth: 1
 
