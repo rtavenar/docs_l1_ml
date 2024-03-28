@@ -1,8 +1,9 @@
-from keras.datasets import mnist
+from keras.datasets import mnist, fashion_mnist
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.tree import export_graphviz
 import graphviz
+from sklearn.model_selection import train_test_split
 
 def charger_mnist():
     """Charge le jeu de données de classification d'images MNIST.
@@ -22,18 +23,46 @@ def charger_mnist():
     -------
     >>> X, y = charger_mnist()
     >>> print(len(X))
-    60000
+    6000
     >>> print(len(y))
-    60000
+    6000
     >>> print(len(X[0]))
     784
     """
     X, y = mnist.load_data()[0]
     X = X.reshape((X.shape[0], -1))
-    return X, y
+    return X[::10], y[::10]
+
+def charger_fashion():
+    """Charge le jeu de données de classification d'images Fashion-MNIST.
+    
+    Ce jeu de données contient des images d'accessoires de mode et la tâche de classification
+    consiste à retrouver le type d'accessoire contenu dans l'image (10 classes possibles).
+    Chaque image est en résolution 28x28, ce qui fait 784 pixels en tout.
+
+    Returns
+    -------
+    X : ``numpy.ndarray`` (liste de liste)
+        jeu de données (variables explicatives)
+    y : liste d'entiers
+        variable cible (=classe)
+
+    Example
+    -------
+    >>> X, y = charger_fashion()
+    >>> print(len(X))
+    6000
+    >>> print(len(y))
+    6000
+    >>> print(len(X[0]))
+    784
+    """
+    X, y = fashion_mnist.load_data()[0]
+    X = X.reshape((X.shape[0], -1))
+    return X[::10], y[::10]
 
 
-def visu_mnist(X, y, preds=None):
+def visu_images(X, y, preds=None):
     """Visualise un jeu de données d'images de résolution 28x28
 
     Parameters
@@ -50,15 +79,15 @@ def visu_mnist(X, y, preds=None):
     Example
     -------
     >>> X, y = charger_mnist()
-    >>> visu_mnist(X, y)
-    >>> visu_mnist(X_test, y_test, modele.predict(X_test))
+    >>> visu_images(X, y)
+    >>> visu_images(X_test, y_test, modele.predict(X_test))
     """
     np.random.seed(0)
     plt.figure(figsize=(8, 8))
     indices = np.random.choice(len(X), size=16, replace=False)
     for i, idx in enumerate(indices):
         ax = plt.subplot(4, 4, i + 1)
-        plt.imshow(X[idx].reshape((28, 28)), cmap="Greys_r")
+        plt.imshow(X[idx].reshape((28, 28)), cmap="Greys")
         if preds is None:
             plt.title(f"Image {idx}\nClasse {y[idx]}")
         else:
@@ -71,7 +100,7 @@ def visu_mnist(X, y, preds=None):
     plt.tight_layout()
 
 def visu_arbre(modele_arbre):
-    """Visualise un jeu de données d'images de résolution 28x28
+    """Visualise un arbre de décision entraîné.
 
     Parameters
     ----------
@@ -89,7 +118,7 @@ def visu_arbre(modele_arbre):
     dot_data = export_graphviz(modele_arbre, out_file=None, filled=True, rounded=True)
     return graphviz.Source(dot_data)
 
-def feature_importance_viz(modele_arbre):
+def visu_attributs_importants(modele_arbre):
     """Visualise les pixels sur lesquels un modèle de type arbre de 
     décision base ses décisions.
     Suppose que le modèle a été entraîné sur un jeu de données 
@@ -106,7 +135,7 @@ def feature_importance_viz(modele_arbre):
     -------
     >>> m = DecisionTreeClassifier(...)
     >>> m.fit(X, y)
-    >>> feature_importance_viz(m)
+    >>> visu_attributs_importants(m)
     """
     imp = modele_arbre.feature_importances_
     plt.imshow(imp.reshape((28, 28)), cmap="Greys")
