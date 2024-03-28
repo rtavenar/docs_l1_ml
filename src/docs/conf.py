@@ -21,7 +21,8 @@ html_theme_options = {
     "logo": {
         "text": "Initiation au ML"
     },
-    "show_toc_level": 3
+    "show_toc_level": 3,
+    "show_prev_next": False
 }
 html_sidebars = {
   "*": [],
