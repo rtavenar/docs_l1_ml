@@ -14,9 +14,9 @@ jobs:
     - run: pip install pydata_sphinx_theme scikit-learn scipy numpy matplotlib
     - name: Build the docs
       run: |
-        cd TD4/docs && sphinx-build -b singlehtml . _build
+        cd src/docs && sphinx-build -b singlehtml . _build
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: TD4/docs/_build/
+          publish_dir: src/docs/_build/
