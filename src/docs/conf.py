@@ -5,7 +5,7 @@ import sys
 sys.path.insert(0, os.path.abspath("."))
 sys.path.insert(0, os.path.abspath(".."))
 
-project = ""
+project = "Initiation au ML"
 copyright = ""
 author = "Romain Tavenard"
 extensions = ["sphinx.ext.autodoc", "sphinx.ext.intersphinx", 'sphinx.ext.napoleon']
@@ -21,6 +21,9 @@ html_theme_options = {
     "logo": {
         "text": "Initiation au ML"
     }
+}
+html_sidebars = {
+  "*": [],
 }
 language = "fr"
 add_module_names = False
