@@ -15,14 +15,17 @@ extensions = ["sphinx.ext.autodoc",
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 templates_path = ["_templates"]
 html_theme = "pydata_sphinx_theme"
-# html_static_path = ["_static"]
+html_static_path = ["_static"]
+html_css_files = [
+    'css/custom.css',
+]
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None)
 }
 html_theme_options = {
     "nosidebar": True,
     "logo": {
-        "text": "Initiation au ML"
+        "text": "Initiation au ML (L1 MIASHS)"
     },
     "show_toc_level": 3,
     "show_prev_next": False
