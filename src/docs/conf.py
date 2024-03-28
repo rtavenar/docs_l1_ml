@@ -33,6 +33,7 @@ html_theme_options = {
 html_sidebars = {
   "*": [],
 }
+html_show_sourcelink = False
 
 copybutton_exclude = '.linenos, .gp, .go'
 copybutton_copy_empty_lines = False
