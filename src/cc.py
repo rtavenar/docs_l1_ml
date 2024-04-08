@@ -160,7 +160,7 @@ def afficher_images_label(liste_chemins_images, label, y_test=None, y_pred=None,
     ----------
     liste_chemins_images : liste de chaînes de caractères
         Liste des chemins des images du jeu de données complet
-    label : liste
+    label : chaîne de caractères
         Label des images à afficher
     y_test : liste (facultatif)
         Liste des labels des images du jeu données de test
