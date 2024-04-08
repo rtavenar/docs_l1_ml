@@ -332,26 +332,6 @@ document.write(`
   <section id="module-cc">
 <span id="cc"></span><h1>CC<a class="headerlink" href="#module-cc" title="Link to this heading">#</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="cc.affiche_matrice_confusion">
-<span class="sig-name descname"><span class="pre">affiche_matrice_confusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cc.affiche_matrice_confusion" title="Link to this definition">#</a></dt>
-<dd><p>Affiche la matrice de confusion pour une liste de labels de test, une liste de
-labels prédits et une liste des labels possibles</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_test</strong> (<em>liste</em>) – Liste des labels du jeu de données de test</p></li>
-<li><p><strong>y_pred</strong> (<em>liste</em>) – Liste des labels prédits pour le jeu de données de test</p></li>
-<li><p><strong>labels</strong> (<em>liste</em>) – Liste de labels possibles</p></li>
-</ul>
-</dd>
-</dl>
-<p class="rubric">Exemple</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">afficher_matrice_confusion</span><span class="p">(</span><span class="n">my_y_test</span><span class="p">,</span> <span class="n">my_y_pred</span><span class="p">,</span> <span class="n">my_labels</span><span class="p">):</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="cc.afficher_images_label">
 <span class="sig-name descname"><span class="pre">afficher_images_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">liste_chemins_images</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cc.afficher_images_label" title="Link to this definition">#</a></dt>
 <dd><p>Affiche un échantillon d’image pour un label donné.</p>
@@ -377,6 +357,26 @@ les images prédites pour le label spécifié.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">afficher_images_label</span><span class="p">(</span><span class="n">liste_chemins_images</span><span class="p">,</span> <span class="s2">&quot;foret&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">afficher_images_label</span><span class="p">(</span><span class="n">liste_chemins_images</span><span class="p">,</span> <span class="s2">&quot;cote&quot;</span><span class="p">,</span> <span class="n">y_test</span><span class="o">=</span><span class="n">my_y_test</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">afficher_images_label</span><span class="p">(</span><span class="n">liste_chemins_images</span><span class="p">,</span> <span class="s2">&quot;glacier&quot;</span><span class="p">,</span> <span class="n">y_test</span><span class="o">=</span><span class="n">my_y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">my_y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cc.afficher_matrice_confusion">
+<span class="sig-name descname"><span class="pre">afficher_matrice_confusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cc.afficher_matrice_confusion" title="Link to this definition">#</a></dt>
+<dd><p>Affiche la matrice de confusion pour une liste de labels de test, une liste de
+labels prédits et une liste des labels possibles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_test</strong> (<em>liste</em>) – Liste des labels du jeu de données de test</p></li>
+<li><p><strong>y_pred</strong> (<em>liste</em>) – Liste des labels prédits pour le jeu de données de test</p></li>
+<li><p><strong>labels</strong> (<em>liste</em>) – Liste de labels possibles</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Exemple</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">afficher_matrice_confusion</span><span class="p">(</span><span class="n">my_y_test</span><span class="p">,</span> <span class="n">my_y_pred</span><span class="p">,</span> <span class="n">my_labels</span><span class="p">):</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -513,8 +513,8 @@ correspond à la distance entre deux groupes.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc.affiche_matrice_confusion"><code class="docutils literal notranslate"><span class="pre">affiche_matrice_confusion()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc.afficher_images_label"><code class="docutils literal notranslate"><span class="pre">afficher_images_label()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc.afficher_matrice_confusion"><code class="docutils literal notranslate"><span class="pre">afficher_matrice_confusion()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc.charger_paysages"><code class="docutils literal notranslate"><span class="pre">charger_paysages()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc.diagramme_en_batons_distances"><code class="docutils literal notranslate"><span class="pre">diagramme_en_batons_distances()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc.liste_fichiers_dossier"><code class="docutils literal notranslate"><span class="pre">liste_fichiers_dossier()</span></code></a></li>
