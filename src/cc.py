@@ -66,15 +66,15 @@ def visu_dendrogramme(modele, villes=[]):
     >>> visu_dendrogramme(cah, ["Marseille", "Montpellier", ...])
     """
     linkage_matrix = np.column_stack(
-        [model.children_,
-         model.distances_,
-         np.zeros(model.children_.shape[0])]
+        [modele.children_,
+         modele.distances_,
+         np.zeros(modele.children_.shape[0])]
     ).astype(float)
 
     # Plot the corresponding dendrogram
     dendrogram(
         linkage_matrix, labels=villes, orientation="left",
-        color_threshold=0. if model.n_clusters is None else model.distances_[::-1][model.n_clusters - 2])
+        color_threshold=0. if modele.n_clusters is None else modele.distances_[::-1][modele.n_clusters - 2])
     plt.show()
 
 def diagramme_en_batons_distances(modele, n_clusters_max=10):
@@ -206,7 +206,7 @@ def afficher_images_label(liste_chemins_images, label, y_test=None, y_pred=None,
     plt.show()
 
 
-def affiche_matrice_confusion(y_test, y_pred, labels):
+def afficher_matrice_confusion(y_test, y_pred, labels):
     """Affiche la matrice de confusion pour une liste de labels de test, une liste de
     labels prédits et une liste des labels possibles
 
