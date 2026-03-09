@@ -14,41 +14,45 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=b7c4029d" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=d1a510d7"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=317740d0"></script>
-    <script src="_static/translations.js?v=d99ca74e"></script>
+    <script src="_static/translations.js?v=e6b791cb"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'cc';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="prev" title="TD5" href="td5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -56,31 +60,16 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Passer au contenu principal</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Haut de page
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -88,7 +77,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -96,20 +84,27 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Alerte de version"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navigation dans le site">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
   
   <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -130,29 +125,29 @@
     <div class="me-auto navbar-header-items__center">
       
         <div class="navbar-item">
-<nav class="navbar-nav">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="td4.html">
-                        TD4
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="td4.html">
+    TD4
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="td5.html">
-                        TD5
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
-                        CC
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="td5.html">
+    TD5
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    CC
+  </a>
+</li>
+
   </ul>
 </nav></div>
       
@@ -164,29 +159,21 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Recherche</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Recherche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Thème" data-bs-title="Thème"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Clair"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Sombre"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Paramètres système"></i>
+</button></div>
       
     </div>
     
@@ -195,22 +182,18 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Recherche</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Recherche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="Sur cette page">
       <span class="fa-solid fa-outdent"></span>
-    </label>
+    </button>
   
 </div>
 
@@ -222,7 +205,8 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -231,32 +215,35 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item">
-<nav class="navbar-nav">
+          
+          
+            <div class="navbar-item">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="td4.html">
-                        TD4
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="td4.html">
+    TD4
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="td5.html">
-                        TD5
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
-                        CC
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="td5.html">
+    TD5
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    CC
+  </a>
+</li>
+
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -266,15 +253,11 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Thème" data-bs-title="Thème"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Clair"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Sombre"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Paramètres système"></i>
+</button></div>
         
       </div>
     
@@ -282,29 +265,32 @@ document.write(`
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
         <div class="header-article-item">
 
-
-
-<nav aria-label="Fil d'Ariane">
+<nav aria-label="Fil d'Ariane" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
@@ -312,7 +298,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">CC</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">CC</span></li>
   </ul>
 </nav>
 </div>
@@ -330,10 +316,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="module-cc">
-<span id="cc"></span><h1>CC<a class="headerlink" href="#module-cc" title="Link to this heading">#</a></h1>
+<span id="cc"></span><h1>CC<a class="headerlink" href="#module-cc" title="Lien vers cette rubrique">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="cc.afficher_images_label">
-<span class="sig-name descname"><span class="pre">afficher_images_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">liste_chemins_images</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cc.afficher_images_label" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">afficher_images_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">liste_chemins_images</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cc.afficher_images_label" title="Lien vers cette définition">#</a></dt>
 <dd><p>Affiche un échantillon d’image pour un label donné.</p>
 <p>Si ni <code class="docutils literal notranslate"><span class="pre">y_test</span></code> ni <code class="docutils literal notranslate"><span class="pre">y_pred</span></code> n’est fourni, l’échantillon d’images pour le label spécifié
 est pris dans le jeu de données complet.
@@ -363,7 +349,7 @@ les images prédites pour le label spécifié.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cc.afficher_matrice_confusion">
-<span class="sig-name descname"><span class="pre">afficher_matrice_confusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cc.afficher_matrice_confusion" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">afficher_matrice_confusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cc.afficher_matrice_confusion" title="Lien vers cette définition">#</a></dt>
 <dd><p>Affiche la matrice de confusion pour une liste de labels de test, une liste de
 labels prédits et une liste des labels possibles</p>
 <dl class="field-list simple">
@@ -383,7 +369,7 @@ labels prédits et une liste des labels possibles</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cc.charger_paysages">
-<span class="sig-name descname"><span class="pre">charger_paysages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cc.charger_paysages" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">charger_paysages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cc.charger_paysages" title="Lien vers cette définition">#</a></dt>
 <dd><p>Charge le jeu de données de classification d’images de paysage.</p>
 <p>Ce jeu de données contient des images de paysage dans cinq catégories : côte, désert, forêt, glacier et montagne.
 Chaque image est caractérisée par un vecteur de dimension 512 représentant son histogramme de couleurs avec 8x8x8=512 bins.
@@ -405,7 +391,7 @@ Chaque image est associée à un label parmi “cote”, “desert”, “foret�
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cc.diagramme_en_batons_distances">
-<span class="sig-name descname"><span class="pre">diagramme_en_batons_distances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modele</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cc.diagramme_en_batons_distances" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">diagramme_en_batons_distances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modele</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cc.diagramme_en_batons_distances" title="Lien vers cette définition">#</a></dt>
 <dd><p>Trace un diagramme en barres des distances entre groupes en fonction du nombre de groupes.
 On peut interpréter ce diagramme comme une mesure de la difficulté à diminuer le nombre de groupes.</p>
 <dl class="field-list simple">
@@ -426,7 +412,7 @@ On peut interpréter ce diagramme comme une mesure de la difficulté à diminuer
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cc.liste_fichiers_dossier">
-<span class="sig-name descname"><span class="pre">liste_fichiers_dossier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dossier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cc.liste_fichiers_dossier" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">liste_fichiers_dossier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dossier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cc.liste_fichiers_dossier" title="Lien vers cette définition">#</a></dt>
 <dd><p>Renvoie la liste des chemins des fichiers contenus dans le dossier spécifié.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres<span class="colon">:</span></dt>
@@ -447,7 +433,7 @@ On peut interpréter ce diagramme comme une mesure de la difficulté à diminuer
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cc.load_data_citycrime">
-<span class="sig-name descname"><span class="pre">load_data_citycrime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cc.load_data_citycrime" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">load_data_citycrime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cc.load_data_citycrime" title="Lien vers cette définition">#</a></dt>
 <dd><p>Charge le jeu de données City Crime.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Renvoie<span class="colon">:</span></dt>
@@ -467,7 +453,7 @@ On peut interpréter ce diagramme comme une mesure de la difficulté à diminuer
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cc.visu_dendrogramme">
-<span class="sig-name descname"><span class="pre">visu_dendrogramme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modele</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">villes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cc.visu_dendrogramme" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">visu_dendrogramme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modele</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">villes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cc.visu_dendrogramme" title="Lien vers cette définition">#</a></dt>
 <dd><p>Visualise le dendrogramme correspondant à un modèle CAH fourni en entrée.</p>
 <p>Le dendrogramme permet de visualiser le process d’agglomération des individus.
 Il permet aussi de choisir le nombre de groupes car la hauteur des segments
@@ -502,7 +488,8 @@ correspond à la distance entre deux groupes.</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -536,8 +523,8 @@ correspond à la distance entre deux groupes.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -547,7 +534,7 @@ correspond à la distance entre deux groupes.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Créé en utilisant <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    Créé en utilisant <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>
@@ -560,7 +547,8 @@ correspond à la distance entre deux groupes.</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  Construit avec le <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">Thème PyData Sphinx</a> 0.15.2.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Construit avec le <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">thème PyData Sphinx</a> 0.16.1.
 </p></div>
       
     </div>
