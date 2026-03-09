@@ -46,7 +46,7 @@ def visu_dendrogramme(model):
 
     Le dendrogramme permet de visualiser le process d’agglomération des individus.
     Il permet aussi de choisir le nombre de groupes car la hauteur des segments 
-    correspond à la distance entre deux groupes (cf. p140 du CM).
+    correspond à la distance entre deux groupes (cf. p135 du CM).
 
     Parameters
     ----------
@@ -101,7 +101,7 @@ def visu_donnees_synthetiques(X, clusters=None):
 def diagramme_en_batons_distances(modele, n_clusters_max=10):
     """
     Cette fonction permet de représenter un diagramme en barres des distances entre groupes en fonction du nombre de groupes.
-    On peut interpréter ce diagramme comme une mesure de la diﬀiculté à diminuer le nombre de groupes (cf. CM p141).
+    On peut interpréter ce diagramme comme une mesure de la diﬀiculté à diminuer le nombre de groupes (cf. CM p145).
 
     Parameters
     ----------
